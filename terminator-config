@@ -1,14 +1,16 @@
-# Terminator Console
-# Put this file like ~/.config/terminator/config
-
 [global_config]
   title_hide_sizetext = True
   hide_from_taskbar = True
   inactive_color_offset = 0.63
   enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
 [keybindings]
+  go_up = <Alt>k
   broadcast_all = <Primary><Alt>b
+  go_down = <Alt>j
+  go_right = <Alt>l
   broadcast_off = <Primary><Alt>o
+  go_left = <Alt>h
+  hide_window = <Primary><Alt>backslash
 [profiles]
   [[default]]
     background_darkness = 0.13

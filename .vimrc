@@ -9,4 +9,7 @@ set shiftwidth=4
 set softtabstop=4
 " expand TABs to spaces
 set expandtab
+
+" all md files as markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "
