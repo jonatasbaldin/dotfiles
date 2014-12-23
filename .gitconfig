@@ -1,0 +1,7 @@
+[user]
+	email = jonatas.baldin@gmail.com
+	name = Jonatas Baldin
+[core]
+	editor = vim
+[color]
+	ui = true
