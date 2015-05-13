@@ -6,7 +6,7 @@
 
 if [[ -z "$1" ]] ; then
     echo "Need the dot files path!"
-    exit 0
+    exit 1
 fi
 
 # Check if last chars is not a /
@@ -28,3 +28,5 @@ if [[ ! -d $HOME/.config/terminator/ ]] ; then
 	chown -Rf $USER $HOME/.config/terminator	
 fi
 ln -f -s "$dir.config/terminator/config" $HOME/.config/terminator/config
+
+exit 0
