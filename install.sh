@@ -21,6 +21,7 @@ fi
 ln -f -s "$dir.vimrc" $HOME/.vimrc
 ln -f -s "$dir.gitconfig" $HOME/.gitconfig
 ln -f -s "$dir.bashrc" $HOME/.bashrc
+ln -f -s "$dir.tmux.conf" $HOME/.tmux.conf
 
 # Create terminator config
 if [[ ! -d $HOME/.config/terminator/ ]] ; then
