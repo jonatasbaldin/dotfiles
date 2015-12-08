@@ -47,3 +47,6 @@ imap ii <Esc>
 
 " all md files as markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" highlight code
+syntax on
