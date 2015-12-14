@@ -28,3 +28,6 @@ function tmuxkill() {
 
 # PATH
 export PATH=$PATH:/usr/bin/vsphere
+
+# EDITOR
+export EDITOR=vim
