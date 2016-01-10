@@ -23,6 +23,7 @@ ln -f -s "$dir.gitconfig" $HOME/.gitconfig
 ln -f -s "$dir.bashrc" $HOME/.bashrc
 ln -f -s "$dir.tmux.conf" $HOME/.tmux.conf
 ln -f -s "$dir.PYTHONPATH" $HOME/.PYTHONPATH
+ln -f -s "$dir.tmuxinator" $HOME/.tmuxinator
 
 # Create terminator config
 if [[ ! -d $HOME/.config/terminator/ ]] ; then
