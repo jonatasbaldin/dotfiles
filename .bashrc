@@ -23,6 +23,10 @@ function tmuxkill() {
   tmux kill-session -t $1
 }
 
+# creates a dir and cd into it
+function mkcd() {
+  mkdir $1 && cd $1
+}
 # Disables flow-control chars, for VIM c-s save
 /bin/stty -ixon -ixoff 
 
