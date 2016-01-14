@@ -1,0 +1,29 @@
+# ~/.tmuxinator/ravello.yml
+
+name: ravello
+root: ~/github/ravellosystems
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t ravello
+
+windows:
+  - ravello:
+      layout: main-horizontal
+      panes:
+        - . ~/./py_env/ravsys-source/bin/activate && vim
+        - . ~/./py_env/ravsys-source/bin/activate
