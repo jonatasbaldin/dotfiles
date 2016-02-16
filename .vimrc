@@ -5,6 +5,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
 
 " numbered lines
 set number
@@ -59,6 +61,26 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " highlight code
 syntax on
 
-    " More Vundle
+" NERDTree
+map <silent> <F2> :NERDTreeToggle<CR>
+" closes vim even if NERDTree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" syntastic on open file
+let g:syntastic_check_on_open = 1
+" synatstic python ignores
+let g:syntastic_python_flake8_post_args='--ignore=E501'
+" toggle syntastic
+map <silent> <F3> :SyntasticToggleMode<CR>
+
+" YouCompleteMe Instruction after :PluginInstall (https://github.com/Valloric/YouCompleteMe)
+" cd ~
+" mkdir ycm_build
+" cd ycm_build
+" cmake -G 'Unix Makefiles' . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+" cmake --build . --target ycm_support_libs --config Release
+" and run :PluginInstall again
+
+" More Vundle
 call vundle#end()            " required
-filetype plugin indent on    " required
+filetype plugin on    " required
