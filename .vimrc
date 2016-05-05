@@ -9,8 +9,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'pearofducks/ansible-vim'
+"Plugin 'vim-ruby/vim-ruby'
+"Plugin 'pearofducks/ansible-vim'
+"Plugin 'StanAngeloff/php.vim'
+Plugin 'sheerun/vim-polyglot'
 
 " numbered lines
 set number
@@ -19,11 +21,7 @@ set number
 " Python recommended PEP-0008
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 " HTML, 2 spaces
-autocmd Filetype html setlocal ts=2 sw=2 sts=2 expandtab
-" Ruby, 2 spaces
-autocmd Filetype ruby setlocal ts=2 sw=2 sts=2 expandtab
-" YAML, 2 spaces
-autocmd Filetype yaml setlocal ts=2 sw=2 sts=2 expandtab
+autocmd Filetype html,javascript,ruby,yaml setlocal ts=2 sw=2 sts=2 expandtab
 
 " width of TAB is set to 4
 set tabstop=4
