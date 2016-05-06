@@ -9,9 +9,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-"Plugin 'vim-ruby/vim-ruby'
-"Plugin 'pearofducks/ansible-vim'
-"Plugin 'StanAngeloff/php.vim'
 Plugin 'sheerun/vim-polyglot'
 
 " numbered lines
@@ -118,11 +115,8 @@ let g:loaded_syntastic_yaml_yamllint_checker = 1
 map <silent> <F3> :SyntasticToggleMode<CR>
 
 " YouCompleteMe Instruction after :PluginInstall (https://github.com/Valloric/YouCompleteMe)
-" cd ~
-" mkdir ycm_build
-" cd ycm_build
-" cmake -G 'Unix Makefiles' . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-" cmake --build . --target ycm_support_libs --config Release
+" cd ~/.vim/bundle/YouCompleteMe
+" ./install.py
 " and run :PluginInstall again
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
