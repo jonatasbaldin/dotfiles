@@ -9,10 +9,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-"Plugin 'vim-ruby/vim-ruby'
-"Plugin 'pearofducks/ansible-vim'
-"Plugin 'StanAngeloff/php.vim'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'mattn/emmet-vim'
 
 " numbered lines
 set number
@@ -111,18 +109,20 @@ let g:syntastic_check_on_open = 1
 " F823 - local variable ... referenced before assignment
 let g:syntastic_python_flake8_post_args='--ignore=E501,F823'
 
-" syntastic yaml (requires npm js-yaml)
+" syntastic yaml (requires npm install js-yaml -g)
 let g:loaded_syntastic_yaml_yamllint_checker = 1
+
+" syntastic html (requires apt-get install tidy)
+let g:syntastic_html_tidy_exec = '/usr/bin/tidy'
+
+" syntastic js (requires npm install jshint -g)
+let g:syntastic_javascript_checkers = ['jshint']
 
 " toggle syntastic
 map <silent> <F3> :SyntasticToggleMode<CR>
 
 " YouCompleteMe Instruction after :PluginInstall (https://github.com/Valloric/YouCompleteMe)
-" cd ~
-" mkdir ycm_build
-" cd ycm_build
-" cmake -G 'Unix Makefiles' . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-" cmake --build . --target ycm_support_libs --config Release
+" Run ./install.py
 " and run :PluginInstall again
 let g:ycm_autoclose_preview_window_after_insertion = 1
 

@@ -17,6 +17,13 @@ else
     dir="$1"
 fi
 
+# Create SSH dir
+if [[ ! -d $HOME/.ssh/ ]] ; then
+	mkdir -p $HOME/.ssh
+	chown -Rf $USER $HOME/.ssh	
+    chmod 700 $HOME/.ssh
+fi
+
 # Some sym links
 ln -f -s "$dir.vimrc" $HOME/.vimrc
 ln -f -s "$dir.gitconfig" $HOME/.gitconfig
@@ -24,6 +31,7 @@ ln -f -s "$dir.bashrc" $HOME/.bashrc
 ln -f -s "$dir.tmux.conf" $HOME/.tmux.conf
 ln -f -s "$dir.PYTHONPATH" $HOME/.PYTHONPATH
 ln -f -s "$dir.tmuxinator" $HOME/.tmuxinator
+ln -f -s "$dir.ssh_config" $HOME/.ssh/config
 
 # Create terminator config
 if [[ ! -d $HOME/.config/terminator/ ]] ; then

@@ -58,7 +58,7 @@ fi
 export EDITOR=vim
 
 # PS1
-PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w(\$(git branch 2> /dev/null | grep "^*" | tr -d '* '))$ "
+PS1="$(echo :top: | emojify):\w(\$(git branch 2> /dev/null | grep "^*" | tr -d '* '))$ "
 
 
 ### Bashhub.com Installation.
@@ -71,3 +71,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### Allows Gogh themes
+force_color_prompt=yes
