@@ -123,6 +123,8 @@ map <silent> <F3> :SyntasticToggleMode<CR>
 
 " YouCompleteMe Instruction after :PluginInstall (https://github.com/Valloric/YouCompleteMe)
 " Run ./install.py
+" cd ~/.vim/bundle/YouCompleteMe
+" ./install.py
 " and run :PluginInstall again
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
