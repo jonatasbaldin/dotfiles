@@ -2,14 +2,6 @@ Host bastion01.mindthegraph.com
   IdentityFile ~/keys/bastion.pem
   ForwardAgent yes
 
-Host 52.40.246.182
-  IdentityFile ~/keys/bastion.pem
-  ForwardAgent yes
-
-#Host mindthegraph01.mindthegraph.com
-#  IdentityFile ~/keys/mindthegraph-webdb-amazon.pem
-#  ProxyCommand ssh ubuntu@bastion01.mindthegaph.com -W %h:%p
-
 Host mindthegraph01.mindthegraph.com
   IdentityFile ~/keys/mindthegraph-webdb-amazon.pem
-  ProxyCommand ssh ubuntu@52.40.246.182 -W %h:%p
+  ProxyCommand ssh ubuntu@bastion01.mindthegaph.com -W %h:%p
