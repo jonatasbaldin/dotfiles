@@ -5,3 +5,7 @@ Host bastion01.mindthegraph.com
 Host mindthegraph01.mindthegraph.com
   IdentityFile ~/keys/mindthegraph-webdb-amazon.pem
   ProxyCommand ssh ubuntu@bastion01.mindthegraph.com -W %h:%p
+
+Host 172.31.21.78
+  IdentityFile ~/keys/mindthetest.pem   
+  ProxyCommand ssh ubuntu@bastion01.mindthegraph.com -W %h:%p
