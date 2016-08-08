@@ -11,6 +11,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'mattn/emmet-vim'
+Plugin 'joonty/vim-phpqa'
 
 " numbered lines
 set number
@@ -65,7 +66,7 @@ imap <c-h> <Esc><c-w>h
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " esc to ii
-imap ii <Esc>
+" imap ii <Esc>
 
 " all md files as markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -89,6 +90,9 @@ inoremap <Right> <NOP>
 
 " Disable automatic comment
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+
+" Map leader
+let mapleader="@"
 
 " Split resize
 " Winsize
@@ -127,6 +131,13 @@ map <silent> <F3> :SyntasticToggleMode<CR>
 " ./install.py
 " and run :PluginInstall again
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" php-qa
+" Stop the location list opening automatically
+let g:phpqa_open_loc = 0 
+let g:phpqa_codesniffer_args = "--standard=PSR1"
+" Don't run codesniffer on save (default = 1)
+let g:phpqa_codesniffer_autorun = 0
 
 " More Vundle
 call vundle#end()            " required

@@ -58,7 +58,7 @@ fi
 export EDITOR=vim
 
 # PS1
-PS1="$(echo :soon: | emojify):\w(\$(git branch 2> /dev/null | grep "^*" | tr -d '* '))$ "
+PS1="$(echo :top: | emojify):\w(\$(git branch 2> /dev/null | grep "^*" | tr -d '* '))$ "
 
 
 ### Bashhub.com Installation.
