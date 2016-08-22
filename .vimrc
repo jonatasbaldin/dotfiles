@@ -11,6 +11,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'mattn/emmet-vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " numbered lines
 set number
@@ -38,6 +42,10 @@ set incsearch
 set ignorecase
 " Highlight search
 set hls
+
+" Make python beautiful
+let python_highlight_all=1
+syntax on
 
 " shows info about current command
 set showcmd 
@@ -96,6 +104,11 @@ set winheight=30
 nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
+" Folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
 " NERDTree
 map <silent> <F2> :NERDTreeToggle<CR>
 " closes vim even if NERDTree is open
@@ -127,6 +140,9 @@ map <silent> <F3> :SyntasticToggleMode<CR>
 " ./install.py
 " and run :PluginInstall again
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" Docsstrings folded code
+let g:SimpylFold_docstring_preview=1
 
 " More Vundle
 call vundle#end()            " required
