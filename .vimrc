@@ -15,15 +15,31 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'tomtom/tcomment_vim'
+Plugin 'FooSoft/vim-argwrap'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+" leader is comma
+let mapleader=","
 
 " numbered lines
 set number
+set relativenumber
+
+" visual autocomplete for command menu
+set wildmenu
 
 " Soft spaces
 " Python recommended PEP-0008
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 " HTML, 2 spaces
 autocmd Filetype html,javascript,ruby,yaml setlocal ts=2 sw=2 sts=2 expandtab
+
+" Python identation
+filetype plugin indent on
+au FileType py set autoindent
+au FileType py set smartindent
 
 " width of TAB is set to 4
 set tabstop=4
@@ -42,13 +58,16 @@ set incsearch
 set ignorecase
 " Highlight search
 set hls
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
 
 " Make python beautiful
 let python_highlight_all=1
 syntax on
 
 " shows info about current command
-set showcmd 
+set showcmd
 
 " spell check for english
 "set spell spelllang=en_us
@@ -143,6 +162,15 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Docsstrings folded code
 let g:SimpylFold_docstring_preview=1
+
+" vim-argwrap
+nnoremap <silent> <leader>a :ArgWrap<CR>
+
+" ultisnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-x>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " More Vundle
 call vundle#end()            " required
