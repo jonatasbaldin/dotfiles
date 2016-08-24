@@ -61,12 +61,7 @@ export EDITOR=vim
 PS1="$(echo :top: | emojify):\w(\$(git branch 2> /dev/null | grep "^*" | tr -d '* '))$ "
 
 
-### Bashhub.com Installation.
-### This Should be at the EOF. https://bashhub.com/docs
-if [ -f ~/.bashhub/bashhub.sh ]; then
-    source ~/.bashhub/bashhub.sh
-fi
-
+# Ruby env
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
@@ -74,3 +69,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Allows Gogh themes
 force_color_prompt=yes
+
+# Virtualenvwrapper
+export WORKON_HOME=~/python_envs
+mkdir -p $WORKON_HOME
+source /usr/local/bin/virtualenvwrapper.sh
