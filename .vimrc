@@ -135,8 +135,6 @@ set ignorecase
 set hls
 " Turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
-" Automatically loads a tags file
-" set tags=./tags;,tags;
 
 
 " -----------------------------------------------------------------------------
