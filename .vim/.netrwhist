@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/jonatas/git-repos/test.wiki'
-let g:netrw_dirhist_2='/tmp/snowplow.wiki/setup-guide/1-setup-a-collector'
-let g:netrw_dirhist_3='/home/jonatas/git-repos/test.wiki'
-let g:netrw_dirhist_4='/home/jonatas/awesome-site/_posts'
-let g:netrw_dirhist_5='/home/jonatas/git-repos/puppet/modules/sudoers'
-let g:netrw_dirhist_6='/home/jonatas/git-repos/puppet/modules/cron-test'

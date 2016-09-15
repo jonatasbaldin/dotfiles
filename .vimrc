@@ -29,6 +29,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'majutsushi/tagbar'
 
 
 " -----------------------------------------------------------------------------
@@ -115,6 +116,12 @@ set foldlevel=99
 nnoremap <space> za
 " Desert colorscheme <3
 colorscheme desert
+" Backspace always delete, even if not typed during the insert session
+set backspace=indent,eol,start
+" Vim clipboard goes to operating system clipboard
+set clipboard=unnamed
+" Autoload tags file
+set tags=./tags;/
 
 
 " -----------------------------------------------------------------------------
@@ -128,6 +135,8 @@ set ignorecase
 set hls
 " Turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
+" Automatically loads a tags file
+" set tags=./tags;,tags;
 
 
 " -----------------------------------------------------------------------------
@@ -148,8 +157,10 @@ set directory=/tmp//
 map <silent> <F2> :NERDTreeToggle<CR>
 " Closes vim even if NERDTree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Open NERDTree on vim startup
+" Open NERDTree on vim startup 
 autocmd vimenter * NERDTree
+" Focus on the file instead of NERDTree on file open
+autocmd vimenter * wincmd p
 " Exclude files/dirs from NERDTree
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 
@@ -202,13 +213,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 " -----------------------------------------------------------------------------
-" vim colors solarized
-" -----------------------------------------------------------------------------
-" Background color
-" set background=dark
-
-
-" -----------------------------------------------------------------------------
 " Airline
 " -----------------------------------------------------------------------------
 " Airline color with tmux
@@ -229,6 +233,15 @@ let g:ctrlp_user_command = 'find %s -type f'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " Ignore dirs and files
 let g:ctrlp_custom_ignore = '\v[\/](__pycache__)|(\.(swp|git|pyc))$'
+" Map CtrlPTag <3
+nnoremap <leader>. :CtrlPTag<cr>
+
+
+" -----------------------------------------------------------------------------
+" Tagbar
+" -----------------------------------------------------------------------------
+" Shortcut to open Tagbar
+nmap <F8> :TagbarToggle<CR>
 
 
 " -----------------------------------------------------------------------------
