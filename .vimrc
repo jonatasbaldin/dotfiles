@@ -30,6 +30,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'majutsushi/tagbar'
+Plugin 'terryma/vim-expand-region'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-repeat'
 
 
 " -----------------------------------------------------------------------------
@@ -143,6 +147,13 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Set swap files directory
 set backupdir=/tmp//
 set directory=/tmp//
+" Nice updatetime
+set updatetime=250
+" Use \d on top of a word to look it up in Dictionary.app
+nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
+" Set spell check on markdown files
+autocmd Filetype markdown setlocal spell spelllang=en_us
+
 
 
 " -----------------------------------------------------------------------------
