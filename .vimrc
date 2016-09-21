@@ -34,6 +34,7 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 
 " -----------------------------------------------------------------------------
@@ -251,6 +252,27 @@ nnoremap <leader>. :CtrlPTag<cr>
 " -----------------------------------------------------------------------------
 " Shortcut to open Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+
+" -----------------------------------------------------------------------------
+" Jedi
+" -----------------------------------------------------------------------------
+" Make docstring show on preview window
+autocmd FileType python setlocal completeopt-=preview
+
+
+" -----------------------------------------------------------------------------
+" IndentGuides
+" -----------------------------------------------------------------------------
+" Disable default colors for terminal VIM
+let g:indent_guides_auto_colors = 0
+" Start indentation at second level
+let g:indent_guides_start_level = 2
+" Small guide
+let g:indent_guides_guide_size = 1
+" Custom colors
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 
 " -----------------------------------------------------------------------------
