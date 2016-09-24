@@ -96,7 +96,8 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
-
+" Reload .vimrc
+map <Leader>v :so $MYVIMRC<cr>
 
 " -----------------------------------------------------------------------------
 " Usability and visual
