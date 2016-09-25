@@ -28,6 +28,7 @@ ln -f -s "$dir.vimrc" $HOME/.vimrc
 ln -f -s "$dir.gitconfig" $HOME/.gitconfig
 ln -f -s "$dir.bashrc" $HOME/.bashrc
 ln -f -s "$dir.bashrc" $HOME/.profile # OS X
+ln -f -s "$dir.zshrc" $HOME/.zshrc
 ln -f -s "$dir.tmux.conf" $HOME/.tmux.conf
 ln -f -s "$dir.tmuxinator" $HOME/.tmuxinator
 ln -f -s "$dir.vim/UltiSnips" $HOME/.vim/UltiSnips

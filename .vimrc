@@ -180,7 +180,7 @@ let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 " Syntastic
 " -----------------------------------------------------------------------------
 " Enable Syntastic when opening file
-let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_open = 1
 " Syntastic flake8 excludes (need flake8)
 let g:syntastic_python_flake8_post_args='--ignore=F823'
 " Syntastic YAML (npm install js-yaml -g)
