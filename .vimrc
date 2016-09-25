@@ -23,8 +23,8 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
@@ -34,7 +34,8 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'trevordmiller/nova-vim'
+Plugin 'auto-pairs'
 
 
 " -----------------------------------------------------------------------------
@@ -104,8 +105,6 @@ map <Leader>v :so $MYVIMRC<cr>
 " -----------------------------------------------------------------------------
 " Show line numbers
 set number
-" Show relative line numbers
-set relativenumber
 " Better autocomplete menu
 set wildmenu
 " Show partial commands in the last line of the screen
@@ -120,14 +119,20 @@ set foldmethod=indent
 set foldlevel=99
 " Toggle fold
 nnoremap <space> za
-" Desert colorscheme <3
-colorscheme desert
 " Backspace always delete, even if not typed during the insert session
 set backspace=indent,eol,start
 " Vim clipboard goes to operating system clipboard
 set clipboard=unnamed
 " Autoload tags file
 set tags=./tags;/
+" Set colors (the colorscheme was not working with nova for some reason)
+" colorscheme nova
+source ~/.vim/bundle/nova-vim/colors/nova.vim
+" Toggle paste mode with F2
+set pastetoggle=<F6>
+" Show the status line all the time
+set laststatus=2
+
 
 
 " -----------------------------------------------------------------------------
@@ -168,8 +173,6 @@ autocmd Filetype markdown setlocal spell spelllang=en_us
 map <silent> <F2> :NERDTreeToggle<CR>
 " Closes vim even if NERDTree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Open NERDTree on vim startup 
-autocmd vimenter * NERDTree
 " Focus on the file instead of NERDTree on file open
 autocmd vimenter * wincmd p
 " Exclude files/dirs from NERDTree
@@ -180,7 +183,7 @@ let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 " Syntastic
 " -----------------------------------------------------------------------------
 " Enable Syntastic when opening file
-" let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 1
 " Syntastic flake8 excludes (need flake8)
 let g:syntastic_python_flake8_post_args='--ignore=F823'
 " Syntastic YAML (npm install js-yaml -g)
@@ -226,10 +229,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " -----------------------------------------------------------------------------
 " Airline
 " -----------------------------------------------------------------------------
-" Airline color with tmux
+" " Airline color with tmux
 set t_Co=256
 " Airline theme
-let g:airline_theme='bubblegum'
+" let g:airline_theme='bubblegum'
 
 
 " -----------------------------------------------------------------------------
@@ -262,21 +265,6 @@ nmap <F8> :TagbarToggle<CR>
 autocmd FileType python setlocal completeopt-=preview
 
 
-" -----------------------------------------------------------------------------
-" IndentGuides
-" -----------------------------------------------------------------------------
-" Disable default colors for terminal VIM
-let g:indent_guides_auto_colors = 0
-" Start indentation at second level
-let g:indent_guides_start_level = 2
-" Small guide
-let g:indent_guides_guide_size = 1
-" Custom colors
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
-
-
-" -----------------------------------------------------------------------------
 " Vundle end
 " -----------------------------------------------------------------------------
 " More Vundle
