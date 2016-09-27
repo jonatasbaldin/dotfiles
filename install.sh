@@ -23,14 +23,22 @@ if [[ ! -d $HOME/.ssh/ ]] ; then
     chmod 700 $HOME/.ssh
 fi
 
+# Create neovim folder
+if [[ ! -d $HOME/.config/nvim ]] ; then
+	mkdir -p $HOME/.config/nvim
+fi
+
+echo $dir
 # Create symbolic links
 ln -f -s "$dir.vimrc" $HOME/.vimrc
+ln -f -s "$dir.init.vim" $HOME/.config/nvim/init.vim
 ln -f -s "$dir.gitconfig" $HOME/.gitconfig
 ln -f -s "$dir.bashrc" $HOME/.bashrc
 ln -f -s "$dir.bashrc" $HOME/.profile # OS X
 ln -f -s "$dir.zshrc" $HOME/.zshrc
 ln -f -s "$dir.tmux.conf" $HOME/.tmux.conf
 ln -f -s "$dir.tmuxinator" $HOME/.tmuxinator
+ln -f -s "$dir.hyperterm.js" $HOME/.hyperterm.js
 ln -f -s "$dir.vim/UltiSnips" $HOME/.vim/UltiSnips
 
 exit 0
