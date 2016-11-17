@@ -36,6 +36,9 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
 Plugin 'trevordmiller/nova-vim'
 Plugin 'auto-pairs'
+Plugin 'kylef/apiblueprint.vim'
+Plugin 'fatih/vim-go'
+Plugin 'wikitopian/hardmode'
 
 
 " -----------------------------------------------------------------------------
@@ -47,7 +50,7 @@ autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
 autocmd FileType py set autoindent
 autocmd FileType py set smartindent
 " Another languages with 2 spaces
-autocmd Filetype html,javascript,ruby,yaml setlocal ts=2 sw=2 sts=2 expandtab
+autocmd Filetype html,javascript,ruby,yaml,markdown setlocal ts=2 sw=2 sts=2 expandtab
 " Treat .md files as markdown type
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " Attempt to determine the type of a file based on its name and possibly its
@@ -122,7 +125,7 @@ nnoremap <space> za
 " Backspace always delete, even if not typed during the insert session
 set backspace=indent,eol,start
 " Vim clipboard goes to operating system clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
 " Autoload tags file
 set tags=./tags;/
 " Set colors (the colorscheme was not working with nova for some reason)
@@ -162,6 +165,32 @@ nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
 autocmd Filetype markdown setlocal spell spelllang=en_us
 
 
+" -----------------------------------------------------------------------------
+" Automatically toggle psate on Insert mode when pasting
+" https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
+" -----------------------------------------------------------------------------
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
 
 " -----------------------------------------------------------------------------
 " Plugin specifc
@@ -183,7 +212,7 @@ let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 " Syntastic
 " -----------------------------------------------------------------------------
 " Enable Syntastic when opening file
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 " Syntastic flake8 excludes (need flake8)
 let g:syntastic_python_flake8_post_args='--ignore=F823'
 " Syntastic YAML (npm install js-yaml -g)
