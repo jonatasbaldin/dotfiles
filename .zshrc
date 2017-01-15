@@ -139,3 +139,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 # -----------------------------------------------------------------------------
 export GOPATH="$HOME/code/go"
 export PATH="$PATH:$GOPATH/bin"
+
+export NVM_DIR="/Users/jonatasbaldin/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -102,6 +102,8 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 " Reload .vimrc
 map <Leader>v :so $MYVIMRC<cr>
+" Esc mapping
+inoremap ii <ESC>
 
 " -----------------------------------------------------------------------------
 " Usability and visual
