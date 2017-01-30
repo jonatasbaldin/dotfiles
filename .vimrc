@@ -23,8 +23,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'auto-pairs'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
@@ -35,10 +34,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
 Plugin 'trevordmiller/nova-vim'
-Plugin 'auto-pairs'
 Plugin 'kylef/apiblueprint.vim'
 Plugin 'fatih/vim-go'
-Plugin 'wikitopian/hardmode'
+Plugin 'vivkin/flatland.vim'
+Plugin 'NLKNguyen/papercolor-theme'
 
 
 " -----------------------------------------------------------------------------
@@ -105,6 +104,7 @@ map <Leader>v :so $MYVIMRC<cr>
 " Esc mapping
 inoremap ii <ESC>
 
+
 " -----------------------------------------------------------------------------
 " Usability and visual
 " -----------------------------------------------------------------------------
@@ -130,13 +130,14 @@ set backspace=indent,eol,start
 " set clipboard=unnamed
 " Autoload tags file
 set tags=./tags;/
-" Set colors (the colorscheme was not working with nova for some reason)
-" colorscheme nova
-source ~/.vim/bundle/nova-vim/colors/nova.vim
+" PaperColor theme with source
+source ~/.vim/bundle/papercolor-theme/colors/PaperColor.vim
 " Toggle paste mode with F2
 set pastetoggle=<F6>
 " Show the status line all the time
 set laststatus=2
+" Set terminal color
+set t_Co=256
 
 
 
@@ -255,15 +256,6 @@ let g:UltiSnipsExpandTrigger="<c-x>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " Jump to previous snippet statment
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-
-" -----------------------------------------------------------------------------
-" Airline
-" -----------------------------------------------------------------------------
-" " Airline color with tmux
-set t_Co=256
-" Airline theme
-" let g:airline_theme='bubblegum'
 
 
 " -----------------------------------------------------------------------------
