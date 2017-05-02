@@ -92,3 +92,6 @@ force_color_prompt=yes
 export WORKON_HOME=~/python_envs
 mkdir -p $WORKON_HOME
 source /usr/local/bin/virtualenvwrapper.sh
+
+# added by travis gem
+[ -f /Users/jonatasbaldin/.travis/travis.sh ] && source /Users/jonatasbaldin/.travis/travis.sh
