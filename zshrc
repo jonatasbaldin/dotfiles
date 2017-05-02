@@ -2,7 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/jonatasbaldin/.oh-my-zsh
+
+if [ "$(uname -s)" = "Darwin" ]; then
+    export ZSH=/Users/jonatasbaldin/.oh-my-zsh
+elif [ "$(uname -s)" = "Linux" ]; then
+    export ZSH=/home/jonatas/.oh-my-zsh
+fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -146,4 +151,8 @@ export NVM_DIR="/Users/jonatasbaldin/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # added by travis gem
-[ -f /Users/jonatasbaldin/.travis/travis.sh ] && source /Users/jonatasbaldin/.travis/travis.sh
+if [ "$(uname -s)" = "Darwin" ]; then
+    [ -f /Users/jonatasbaldin/.travis/travis.sh ] && source /Users/jonatasbaldin/.travis/travis.sh
+elif [ "$(uname -s)" = "Linux" ]; then
+    [ -f /home/jonatas/.travis/travis.sh ] && source /home/jonatas/.travis/travis.sh
+fi
