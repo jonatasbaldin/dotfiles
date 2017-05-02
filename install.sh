@@ -11,9 +11,9 @@ fi
 # Check if last chars is not a /
 # To make the right substitution below
 if [[ "${1: -1}" != / ]] ; then
-    dir="$1/"
-else
     dir="$1"
+else
+    dir="$1/"
 fi
 
 # Create SSH folder
@@ -30,15 +30,13 @@ fi
 
 echo $dir
 # Create symbolic links
-ln -f -s "$dir.vimrc" $HOME/.vimrc
-ln -f -s "$dir.init.vim" $HOME/.config/nvim/init.vim
-ln -f -s "$dir.gitconfig" $HOME/.gitconfig
-ln -f -s "$dir.bashrc" $HOME/.bashrc
-ln -f -s "$dir.bashrc" $HOME/.profile # OS X
-ln -f -s "$dir.zshrc" $HOME/.zshrc
-ln -f -s "$dir.tmux.conf" $HOME/.tmux.conf
-ln -f -s "$dir.tmuxinator" $HOME/.tmuxinator
-ln -f -s "$dir.hyperterm.js" $HOME/.hyperterm.js
-ln -f -s "$dir.vim/UltiSnips" $HOME/.vim/UltiSnips
+ln -f -s "$dir/vimrc" $HOME/.vimrc
+ln -f -s "$dir/init.vim" $HOME/.config/nvim/init.vim
+ln -f -s "$dir/gitconfig" $HOME/.gitconfig
+ln -f -s "$dir/bashrc" $HOME/.bashrc
+ln -f -s "$dir/bashrc" $HOME/.profile # OS X
+ln -f -s "$dir/zshrc" $HOME/.zshrc
+ln -f -s "$dir/tmux.conf" $HOME/.tmux.conf
+ln -f -s "$dir/vim/UltiSnips" $HOME/.vim/UltiSnips
 
 exit 0
