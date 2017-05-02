@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python docker git-extras websearch catimg z)
+plugins=(git python docker git-extras websearch catimg z golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -137,8 +137,13 @@ source /usr/local/bin/virtualenvwrapper.sh
 # -----------------------------------------------------------------------------
 # Path
 # -----------------------------------------------------------------------------
-export GOPATH="$HOME/code/go"
+export GOPATH="$HOME/go"
+export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$GOPATH/bin"
+export PATH=~/.local/bin:$PATH
 
 export NVM_DIR="/Users/jonatasbaldin/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# added by travis gem
+[ -f /Users/jonatasbaldin/.travis/travis.sh ] && source /Users/jonatasbaldin/.travis/travis.sh
