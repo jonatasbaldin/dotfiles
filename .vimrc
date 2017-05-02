@@ -52,6 +52,8 @@ autocmd FileType py set smartindent
 autocmd Filetype html,javascript,ruby,yaml,markdown setlocal ts=2 sw=2 sts=2 expandtab
 " Treat .md files as markdown type
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+" Treat .md files as markdown type
+autocmd BufNewFile,BufReadPost *.apib set filetype=apiblueprint
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
