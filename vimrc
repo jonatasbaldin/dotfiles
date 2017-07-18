@@ -11,34 +11,20 @@ call vundle#begin()
 " Plugin list
 " -----------------------------------------------------------------------------
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'edkolev/tmuxline.vim'
 Plugin 'FooSoft/vim-argwrap'
-Plugin 'honza/vim-snippets' " Snippets separated from the engine
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'SirVer/ultisnips' " Snippets engine
-Plugin 'tmhedberg/SimpylFold'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'auto-pairs'
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'majutsushi/tagbar'
-Plugin 'terryma/vim-expand-region'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
-Plugin 'trevordmiller/nova-vim'
 Plugin 'kylef/apiblueprint.vim'
 Plugin 'fatih/vim-go'
-Plugin 'vivkin/flatland.vim'
-Plugin 'NLKNguyen/papercolor-theme'
-
+Plugin 'dracula/vim'
 
 " -----------------------------------------------------------------------------
 " Identations
@@ -132,14 +118,14 @@ set backspace=indent,eol,start
 " set clipboard=unnamed
 " Autoload tags file
 set tags=./tags;/
-" PaperColor theme with source
-source ~/.vim/bundle/papercolor-theme/colors/PaperColor.vim
 " Toggle paste mode with F2
 set pastetoggle=<F6>
 " Show the status line all the time
 set laststatus=2
 " Set terminal color
 set t_Co=256
+" Set theme
+color dracula
 
 
 
@@ -201,63 +187,10 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 " Plugin specifc
 " -----------------------------------------------------------------------------
 " -----------------------------------------------------------------------------
-" NERDTree
-" -----------------------------------------------------------------------------
-" Toglle NERDTree
-map <silent> <F2> :NERDTreeToggle<CR>
-" Closes vim even if NERDTree is open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Focus on the file instead of NERDTree on file open
-autocmd vimenter * wincmd p
-" Exclude files/dirs from NERDTree
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-
-
-" -----------------------------------------------------------------------------
-" Syntastic
-" -----------------------------------------------------------------------------
-" Enable Syntastic when opening file
-let g:syntastic_check_on_open = 0
-" Syntastic flake8 excludes (need flake8)
-let g:syntastic_python_flake8_post_args='--ignore=F823'
-" Syntastic YAML (npm install js-yaml -g)
-let g:loaded_syntastic_yaml_yamllint_checker = 1
-" Syntastic HTML (apt-get install tidy)
-let g:syntastic_html_tidy_exec = '/usr/bin/tidy'
-" Syntastic JS (requires npm install jshint -g)
-let g:syntastic_javascript_checkers = ['jshint']
-" Toggle Syntastic execution
-map <silent> <F3> :SyntasticToggleMode<CR>
-
-
-" -----------------------------------------------------------------------------
-" YouCompleteMe
-" -----------------------------------------------------------------------------
-" After running :PluginInstall, run these commands:
-" cd ~/.vim/bundle/YouCompleteMe
-" ./install.py
-" And run :PluginInstall again
-" Close preview windows after the text was completed
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-
-" -----------------------------------------------------------------------------
 " ArgWrap
 " -----------------------------------------------------------------------------
 " Map to execute ArgWrap
 nnoremap <silent> <leader>a :ArgWrap<CR>
-
-
-" -----------------------------------------------------------------------------
-" UltiSnips
-" -----------------------------------------------------------------------------
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" Expand snippet
-let g:UltiSnipsExpandTrigger="<c-x>"
-" Jump to next snippet statment
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" Jump to previous snippet statment
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 " -----------------------------------------------------------------------------
@@ -274,20 +207,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let g:ctrlp_custom_ignore = '\v[\/](__pycache__)|(\.(swp|git|pyc))$'
 " Map CtrlPTag <3
 nnoremap <leader>. :CtrlPTag<cr>
-
-
-" -----------------------------------------------------------------------------
-" Tagbar
-" -----------------------------------------------------------------------------
-" Shortcut to open Tagbar
-nmap <F8> :TagbarToggle<CR>
-
-
-" -----------------------------------------------------------------------------
-" Jedi
-" -----------------------------------------------------------------------------
-" Make docstring show on preview window
-autocmd FileType python setlocal completeopt-=preview
 
 
 " Vundle end
