@@ -12,7 +12,8 @@ cd dotfiles
 git pull origin master
 
 echo "Installing dotfiles as symbolic links..."
-ln -f -s ".vimrc" "$HOME/.vimrc"
-ln -f -s ".gitconfig" "$HOME/.gitconfig"
-ln -f -s ".zshrc" "$HOME/.zshrc"
-ln -f -s ".tmux.conf" "$HOME/.tmux.conf"
+DIR="$HOME/dotfiles/"
+ln -f -s "$DIR/.vimrc" "$HOME/.vimrc"
+ln -f -s "$DIR/.gitconfig" "$HOME/.gitconfig"
+ln -f -s "$DIR/.zshrc" "$HOME/.zshrc"
+ln -f -s "$DIR/.tmux.conf" "$HOME/.tmux.conf"
