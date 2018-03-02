@@ -1,42 +1,18 @@
 #!/usr/bin/env bash
 
-# Run this scripts using /path/to/cloned/repo as the first argument
+cd $HOME
 
-# Verifies first argument
-if [[ -z "$1" ]] ; then
-    echo "Need the dot files path!"
-    exit 1
+if [[ ! -d dotfiles ]] ; then
+    echo "Clonning repository..."
+    git clone git@github.com:jonatasbaldin/dotfiles.git
 fi
 
-# Check if last chars is not a /
-# To make the right substitution below
-if [[ "${1: -1}" != / ]] ; then
-    dir="$1"
-else
-    dir="$1/"
-fi
+echo "Updating repository..."
+cd dotfiles
+git pull origin master
 
-# Create SSH folder
-if [[ ! -d $HOME/.ssh/ ]] ; then
-	mkdir -p $HOME/.ssh
-	chown -Rf $USER $HOME/.ssh	
-    chmod 700 $HOME/.ssh
-fi
-
-# Create neovim folder
-if [[ ! -d $HOME/.config/nvim ]] ; then
-	mkdir -p $HOME/.config/nvim
-fi
-
-echo $dir
-# Create symbolic links
-ln -f -s "$dir/vimrc" $HOME/.vimrc
-ln -f -s "$dir/init.vim" $HOME/.config/nvim/init.vim
-ln -f -s "$dir/gitconfig" $HOME/.gitconfig
-ln -f -s "$dir/bashrc" $HOME/.bashrc
-ln -f -s "$dir/bashrc" $HOME/.profile # OS X
-ln -f -s "$dir/zshrc" $HOME/.zshrc
-ln -f -s "$dir/tmux.conf" $HOME/.tmux.conf
-ln -f -s "$dir/vim/UltiSnips" $HOME/.vim/UltiSnips
-
-exit 0
+echo "Installing dotfiles as symbolic links..."
+ln -f -s ".vimrc" "$HOME/.vimrc"
+ln -f -s ".gitconfig" "$HOME/.gitconfig"
+ln -f -s ".zshrc" "$HOME/.zshrc"
+ln -f -s ".tmux.conf" "$HOME/.tmux.conf"

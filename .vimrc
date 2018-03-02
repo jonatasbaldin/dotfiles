@@ -25,6 +25,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'kylef/apiblueprint.vim'
 Plugin 'fatih/vim-go'
 Plugin 'dracula/vim'
+Plugin 'scrooloose/nerdtree'
 
 " -----------------------------------------------------------------------------
 " Identations
@@ -114,8 +115,6 @@ set foldlevel=99
 nnoremap <space> za
 " Backspace always delete, even if not typed during the insert session
 set backspace=indent,eol,start
-" Vim clipboard goes to operating system clipboard
-" set clipboard=unnamed
 " Autoload tags file
 set tags=./tags;/
 " Toggle paste mode with F2
@@ -150,10 +149,6 @@ set backupdir=/tmp//
 set directory=/tmp//
 " Nice updatetime
 set updatetime=250
-" Use \d on top of a word to look it up in Dictionary.app
-nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
-" Set spell check on markdown files
-autocmd Filetype markdown setlocal spell spelllang=en_us
 
 
 " -----------------------------------------------------------------------------
@@ -207,6 +202,13 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let g:ctrlp_custom_ignore = '\v[\/](__pycache__)|(\.(swp|git|pyc))$'
 " Map CtrlPTag <3
 nnoremap <leader>. :CtrlPTag<cr>
+
+
+" -----------------------------------------------------------------------------
+" NerdTRee
+" -----------------------------------------------------------------------------
+map <leader>n :NERDTreeToggle<CR>
+map <leader>m :NERDTreeFocus<CR>
 
 
 " Vundle end
