@@ -22,25 +22,22 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-repeat'
-Plugin 'kylef/apiblueprint.vim'
 Plugin 'fatih/vim-go'
 Plugin 'dracula/vim'
 Plugin 'scrooloose/nerdtree'
 
+
 " -----------------------------------------------------------------------------
 " Identations
 " -----------------------------------------------------------------------------
-" Python PEP8
+" Languages with 4 spaces
 autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab
-" Python for plugins
-autocmd FileType py set autoindent
-autocmd FileType py set smartindent
-" Another languages with 2 spaces
+" Languages with 2 spaces
 autocmd Filetype html,javascript,ruby,yaml,markdown setlocal ts=2 sw=2 sts=2 expandtab
+
 " Treat .md files as markdown type
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-" Treat .md files as markdown type
-autocmd BufNewFile,BufReadPost *.apib set filetype=apiblueprint
+
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
@@ -62,9 +59,6 @@ set expandtab
 " -----------------------------------------------------------------------------
 " Leader key to comma
 let mapleader=","
-" Enable file save with CRTL+S
-nmap <c-s> :w<CR>
-imap <c-s> <Esc>:w<CR>a
 " Easy to movement between split windows
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -90,8 +84,6 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 " Reload .vimrc
 map <Leader>v :so $MYVIMRC<cr>
-" Esc mapping
-inoremap ii <ESC>
 
 
 " -----------------------------------------------------------------------------
@@ -113,19 +105,14 @@ set foldmethod=indent
 set foldlevel=99
 " Toggle fold
 nnoremap <space> za
-" Backspace always delete, even if not typed during the insert session
-set backspace=indent,eol,start
 " Autoload tags file
-set tags=./tags;/
-" Toggle paste mode with F2
-set pastetoggle=<F6>
+set tags=./.tags;/
 " Show the status line all the time
 set laststatus=2
 " Set terminal color
 set t_Co=256
 " Set theme
 color dracula
-
 
 
 " -----------------------------------------------------------------------------
@@ -148,7 +135,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 set backupdir=/tmp//
 set directory=/tmp//
 " Nice updatetime
-set updatetime=250
+set updatetime=100
 
 
 " -----------------------------------------------------------------------------
@@ -186,6 +173,8 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 " -----------------------------------------------------------------------------
 " Map to execute ArgWrap
 nnoremap <silent> <leader>a :ArgWrap<CR>
+" Add tail comma
+let g:argwrap_tail_comma = 1
 
 
 " -----------------------------------------------------------------------------
@@ -199,9 +188,7 @@ let g:ctrlp_user_command = 'find %s -type f'
 " Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " Ignore dirs and files
-let g:ctrlp_custom_ignore = '\v[\/](__pycache__)|(\.(swp|git|pyc))$'
-" Map CtrlPTag <3
-nnoremap <leader>. :CtrlPTag<cr>
+let g:ctrlp_custom_ignore = '\v[\/](__pycache__)|(node_modules)|(\.(swp|git|pyc))$'
 
 
 " -----------------------------------------------------------------------------
@@ -209,6 +196,14 @@ nnoremap <leader>. :CtrlPTag<cr>
 " -----------------------------------------------------------------------------
 map <leader>n :NERDTreeToggle<CR>
 map <leader>m :NERDTreeFocus<CR>
+let NERDTreeIgnore = ['\.pyc$', '\.*dist-info$', '__pycache__']
+
+
+" -----------------------------------------------------------------------------
+" vim-multiple-cursor
+" -----------------------------------------------------------------------------
+nnoremap <silent> <M-j> :MultipleCursorsFind <C-R>/<CR>
+vnoremap <silent> <M-j> :MultipleCursorsFind <C-R>/<CR>
 
 
 " Vundle end
