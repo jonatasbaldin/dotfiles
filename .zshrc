@@ -17,16 +17,18 @@ alias ctags='/usr/local/bin/ctags'
 # -----------------------------------------------------------------------------
 # Functions
 # -----------------------------------------------------------------------------
+# Generates ctags for Python (with packages and libs dir)
+# Should be run inside the project file
+# If there's a Pipfile, will use pipenv's virtual env
+# If not, have your virutalenv activated!
 function py_ctags() {
-  # Generates ctags for Python (with packages and libs dir)
-  # $1 must be the full path to the Python project
-  # Make sure your virtualenv is actived when running this, otherwhise it will run the default Python interpreter
-
-  # Require $1
-  if [[ -z "$1" ]] ; then
-      echo "The first parameter must be the full path to the project, with the leading slash!"
-      exit 1
+  if [[ -f "Pipfile" ]]; then
+    ctags -R -f .tags --exclude=.git --fields=+l --languages=python --python-kinds=-iv $(pipenv run python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
+  else
+    ctags -R -f .tags --exclude=.git --fields=+l --languages=python --python-kinds=-iv $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
   fi
+}
+
 
   # Make magic
   ctags -R --exclude=.git --fields=+l --languages=python --python-kinds=-iv -f $1tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))") $1
