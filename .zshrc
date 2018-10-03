@@ -81,3 +81,9 @@ export LANG=en_US.UTF-8
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jonatasbaldin/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jonatasbaldin/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jonatasbaldin/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jonatasbaldin/google-cloud-sdk/completion.zsh.inc'; fi
