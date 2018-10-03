@@ -25,6 +25,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'fatih/vim-go'
 Plugin 'dracula/vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'w0rp/ale'
 
 
 " -----------------------------------------------------------------------------
@@ -205,6 +206,25 @@ let NERDTreeIgnore = ['\.pyc$', '\.*dist-info$', '__pycache__']
 " -----------------------------------------------------------------------------
 nnoremap <silent> <M-j> :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> <M-j> :MultipleCursorsFind <C-R>/<CR>
+
+
+" -----------------------------------------------------------------------------
+" ale
+" -----------------------------------------------------------------------------
+" Just use the explicit linters below
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['flake8'],
+\}
+" List of fixers
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\}
+" Custom error message
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 
 " Vundle end
