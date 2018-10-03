@@ -30,8 +30,24 @@ function py_ctags() {
 }
 
 
-  # Make magic
-  ctags -R --exclude=.git --fields=+l --languages=python --python-kinds=-iv -f $1tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))") $1
+# Quick entering in a Docker container
+function dbash() {
+  docker exec -ti "$1" bash
+}
+
+
+# Generates a __packages symbolic link to the Pipenv virtual enviroinment
+# Allowing to browse the packages codebase with NerdTREE
+# Should be executed inside the project's folder
+function pipenv_packages() {
+    if [[ ! -f "Pipfile" ]]; then
+        echo "pipenv_packages should be executed in a Pipenv project"
+        exit 1
+    fi
+
+    python_version=$(cat "Pipfile" | grep python_version | cut -d "=" -f 2 | tr -d '"| ')
+
+    ln -f -s "$(pipenv --venv)/lib/python$python_version/site-packages" __packages
 }
 
 
