@@ -38,6 +38,9 @@ autocmd Filetype html,javascript,ruby,yaml,markdown setlocal ts=2 sw=2 sts=2 exp
 " Treat .md files as markdown type
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
+" Remove all trailing whitespace when saving
+autocmd BufWritePre * %s/\s\+$//e
+
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
@@ -71,8 +74,6 @@ imap <c-h> <Esc><c-w>h
 " Open splits more naturally
 set splitbelow
 set splitright
-" Remove all trailing whitespace by pressing F5
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " Disable keyboard arrows
 noremap <Up> <NOP>
 noremap <Down> <NOP>
