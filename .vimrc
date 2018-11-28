@@ -39,9 +39,6 @@ autocmd Filetype html,javascript,ruby,yaml,markdown setlocal ts=2 sw=2 sts=2 exp
 " Treat .md files as markdown type
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-" Remove all trailing whitespace when saving
-autocmd BufWritePre * %s/\s\+$//e
-
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
@@ -225,6 +222,13 @@ let g:ale_fixers = {
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+
+
+" -----------------------------------------------------------------------------
+" vim-go
+" -----------------------------------------------------------------------------
+let g:go_fmt_command = "goimports"
 
 
 " Vundle end
