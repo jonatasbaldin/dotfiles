@@ -3,6 +3,7 @@
 	name = Jonatas Baldin
 [core]
 	editor = vim
+	excludesfile = /Users/jonatasbaldin/.gitignore
 [color]
 	ui = true
 [color "diff-highlight"]
@@ -10,5 +11,3 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
-[alias]
-	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"

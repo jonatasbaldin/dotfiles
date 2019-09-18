@@ -1,30 +1,27 @@
 " -----------------------------------------------------------------------------
-" Vundle start
+" Plug start
 " -----------------------------------------------------------------------------
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+ call plug#begin('~/.local/share/nvim/plugged')
 
 
 " -----------------------------------------------------------------------------
 " Plugin list
 " -----------------------------------------------------------------------------
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'FooSoft/vim-argwrap'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'auto-pairs'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-repeat'
-Plugin 'fatih/vim-go'
-Plugin 'scrooloose/nerdtree'
-Plugin 'w0rp/ale'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'FooSoft/vim-argwrap'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-commentary'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-repeat'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'scrooloose/nerdtree'
+Plug 'w0rp/ale'
 
 
 " -----------------------------------------------------------------------------
@@ -110,7 +107,21 @@ set laststatus=2
 " Set terminal color
 set t_Co=256
 " Set theme
-color dracula
+color gruvbox
+" 
+set background=dark
+"
+set termguicolors
+" Remove extra line below status line
+set cmdheight=1
+"
+hi Normal ctermbg=NONE guibg=NONE
+"
+:set nocursorcolumn
+:set nocursorline
+:set norelativenumber
+:syntax sync minlines=256
+
 
 
 " -----------------------------------------------------------------------------
@@ -230,8 +241,5 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:go_fmt_command = "goimports"
 
 
-" Vundle end
-" -----------------------------------------------------------------------------
-" More Vundle
-call vundle#end()            " required
-filetype plugin on    " required
+" Plug end
+call plug#end()
